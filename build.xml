@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="nio_framework">
+  
+  
+  <property file="build.properties"/>
+
+    <target name="build">
+        <javac srcdir="${src.dir}" destdir="${out.dir}"/>
+    </target>
+
+    <target name="jar-bin" depends="build">
+        <jar basedir="${out.dir}" destfile="${archive.dir}/${final.name}.jar">
+            <manifest>
+                <attribute name="Created-By" value="regex-"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="jar-src">
+        <jar basedir="${src.dir}" destfile="${archive.dir}/${final.name}-src.jar">
+            <manifest>
+                <attribute name="Created-By" value="regex-"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="jdoc">
+        <javadoc sourcepath="${src.dir}" destdir="doc"/>
+    </target>
+</project>
